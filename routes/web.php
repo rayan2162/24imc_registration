@@ -23,3 +23,24 @@ Route::middleware(['auth', 'approved'])->group(function () {
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 });
 
+use App\Http\Controllers\PaperRegistrationController;
+
+Route::get('/paper-registrations', [PaperRegistrationController::class, 'index'])
+    ->name('paper-registrations.index')
+    ->middleware('auth');
+
+Route::get('/paper-registrations/create', [PaperRegistrationController::class, 'create'])
+    ->name('paper-registrations.create');
+
+Route::post('/paper-registrations', [PaperRegistrationController::class, 'store'])
+    ->name('paper-registrations.store');
+
+Route::get('/paper-registrations/{paper_registration}', [PaperRegistrationController::class, 'show'])
+    ->name('paper-registrations.show')
+    ->middleware('auth'); // optional
+
+// Optional admin approve toggle - secure this route with admin middleware
+Route::patch('/paper-registrations/{paper_registration}/approve', [PaperRegistrationController::class, 'approve'])
+    ->name('paper-registrations.approve')
+    ->middleware('auth'); // replace with 'auth','is_admin'
+
