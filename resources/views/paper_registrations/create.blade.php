@@ -3,29 +3,41 @@
 @section('content')
 
 {{-- Info Section --}}
-<div class="container mt-4">
+<div class="container my-5">
     <div class="alert mt-3 py-3" style="background: #0072BB; color:white" role="alert">
-        <h2 class="alert-heading text-center">Read this section carefully before filling up the registration form below</h2>
+        <h1 class="text-center text-white pt-3">Registration</h1>
+        <h2 class="text-center text-white">24<sup>th</sup> International Mathematics Conference</h2>
         <br>
-        <p class="mb-2">
-            <strong>Important:</strong> Please review all input fields and instructions before starting your registration. Ensure that you have all required documents and information ready. If you encounter any issues or have questions regarding the registration process, please contact us at:
+        <div class="d-flex justify-content-center align-items-center mb-4 gap-4">
+            <img src="{{ asset('/images/cu_logo_white.png') }}" alt="CU Logo" style="height: 80px;">
+            <img src="{{ asset('/images/bms_logo.png') }}" alt="BMS Logo" style="height: 80px;">
+        </div>
+    <h5 class="card-title mb-3 text-center">Organized by: Department of Mathematics, University of Chittagong</h5>
+      <h5 class="card-title mb-3 text-center">Supported by: Bangladesh Mathematical Society</h5>
+      <br>
+        <h2 class="alert-heading text-center">Please read this section carefully before filling up the registration form below</h2>
+        <br>
+        <p class="mb-2" style="text-align: justify">
+            <strong>Important:</strong> Review all input fields and instructions before starting your registration. Ensure that you have all required documents and information ready. If you encounter any issues or have questions regarding the registration process, please contact us at:
             <br>
-            <strong>Email:</strong> <a href="mailto:mathchair@cu.ac.bd">mathchair@cu.ac.bd</a><br>
+            <br>
+            <strong>Email:</strong> <a style="color: white" href="mailto:mathchair@cu.ac.bd">mathchair@cu.ac.bd</a><br>
             <strong>Mobile:</strong> +880 1816 823 648
         </p>
         <hr>
-        <p>
+        <p style="text-align: justify">
             Registration for the <strong>24<sup>th</sup> International Mathematics Conference</strong> is now open. Participants are encouraged to register early to secure their spot and take advantage of early bird rates. The registration fee includes access to all conference sessions, materials, and meals during the event.
         </p>
         <ul>
             <li><strong>Early Bird registration:</strong> September 01, 2025 - October 10, 2025.</li>
             <li><strong>Last Date of Registration:</strong> November 30, 2025.</li>
             <li>For BMS members, please mention your BMS identification number in the form.</li>
-            <li>The registration fee includes participation in conference events, kit (abstract book, proceedings, pen, pad, etc.), refreshments, lunch, and gala dinner.</li>
+            <li style="text-align: justify">The registration fee includes participation in conference events, kit (abstract book, proceedings, pen, pad, etc.), refreshments, lunch, and gala dinner.</li>
         </ul>
-        <h5 class="mt-3">Registration Fee Details</h5>
+        <br>
+        <h5 class="mb-3 text-center">Registration Fee Details</h5>
         <div class="table-responsive">
-            <table class="table table-bordered table-sm align-middle">
+            <table class="table table-bordered table-sm align-middle text-white">
                 <thead class="table-light">
                     <tr>
                         <th>Category</th>
@@ -64,19 +76,20 @@
                 </tbody>
             </table>
         </div>
+        <br>
 
 
                     {{-- Payment info --}}
-        <div class="col-12">
+        <div class="col-12 text-dark">
             <div class="card mb-4">
                 <div class="card-body">
                      <h2 class="text-center my-3 fw-bold">Payment Information</h2>
         <p style="text-align: justify">You may complete your payment via <strong>Bank</strong> or <strong>Bkash</strong>. Please find the necessary details for both methods below.</p>
         
-        <p style="text-align: justify"><strong>IMPORTANT:</strong> Kindly take a screenshot of the transaction confirmation. This will be required as <strong>proof of payment</strong> during registration or verification.</p>
+        <p style="text-align: justify"><strong>IMPORTANT:</strong> Kindly take a screenshot of the transaction confirmation. This will be required as <strong>proof of payment</strong> during filling up registration form and verification by organizing committee.</p>
                     <br>
                     <h4 class="mb-3 fw-bold">Bank Account Details</h4>
-                    <p><strong>Account Name:</strong> 24th International Conference 2025</p>
+                    <p><strong>Account Name:</strong> 24th International Mathematics Conference 2025</p>
                     <p><strong>Account No:</strong> 0200024463104</p>
                     <p><strong>Routing No:</strong> 010152085</p>
                     <p><strong>Bank Name:</strong> Agrani Bank PLC</p>
@@ -96,12 +109,9 @@
 
 
 {{-- Form Section --}}
-<div class="container p-4 " style="background: lightgray">
+<div class="container p-4 my-5" style="background: lightgray">
     <h2 class="card-title mb-3 text-center">Registration Form</h2>
       <h4 class="card-title mb-3 text-center">24<sup>th</sup> International Mathematics Conference </h4>
-      <h5 class="card-title mb-3 text-center">Organized by: Department of Mathematics, University of Chittagong</h5>
-      <h5 class="card-title mb-3 text-center">Supported by: Bangladesh Mathematical Society</h5>
-      <br>
       <br>
 
     @if(session('success'))
@@ -123,7 +133,7 @@
 
         <div class="row">
             <div class="col-md-6 mb-3">
-                <label class="form-label">Full Name (Required - IN Capital Form)</label>
+                <label class="form-label">Full Name (Required - In Capital Form)</label>
                 <input type="text" name="full_name" value="{{ old('full_name') }}" class="form-control" required>
             </div>
 
@@ -158,7 +168,7 @@
             </div>
 
             <div class="col-md-6 mb-3">
-                <label class="form-label">BMS ID No (Optional - If you are a Member)</label>
+                <label class="form-label">BMS ID No (Optional - If you are a BMS Member)</label>
                 <input type="text" name="bms_id_no" value="{{ old('bms_id_no') }}" class="form-control">
             </div>
 
@@ -203,6 +213,7 @@
                     <option value="Operations Management" {{ old('research_scope') === 'Operations Management' ? 'selected' : '' }}>Operations Management</option>
                     <option value="Quantum Mechanics" {{ old('research_scope') === 'Quantum Mechanics' ? 'selected' : '' }}>Quantum Mechanics</option>
                     <option value="Dynamical System" {{ old('research_scope') === 'Dynamical System' ? 'selected' : '' }}>Dynamical System</option>
+                    <option value="Plasma Physics" {{ old('research_scope') === 'Plasma Physics' ? 'selected' : '' }}>Plasma Physics</option>
                 </select>
             </div>
 

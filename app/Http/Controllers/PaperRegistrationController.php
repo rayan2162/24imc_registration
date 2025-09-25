@@ -13,12 +13,22 @@ class PaperRegistrationController extends Controller
 {
     // Optional: protect dashboard routes with auth middleware in routes/web.php
 
+    
     public function index()
     {
         // Paginate for dashboard
         $papers = PaperRegistration::latest()->paginate(300);
         return view('paper_registrations.index', compact('papers'));
     }
+    
+    public function list()
+    {
+        // Paginate for dashboard
+        $papers = PaperRegistration::latest()->paginate(300);
+        return view('paper_registrations.list', compact('papers'));
+    }
+
+
 
     public function create()
     {

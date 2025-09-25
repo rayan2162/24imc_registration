@@ -28,7 +28,9 @@
             <tr>
                 <td>{{ $p->id }}</td>
                 <td>{{ $p->full_name }}</td>
-                <td>{{ $p->email }}</td>
+                <td>
+                    <a style="color: black" href="mailto:{{ $p->email }}">{{ $p->email }}</a>
+                </td>
                 <td>{{ $p->paper_id_no }}</td>
                 <td style="max-width:200px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">{{ $p->paper_title }}</td>
                 <td>{{ $p->presenter_full_name }}</td>

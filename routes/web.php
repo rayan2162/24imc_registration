@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PaperRegistrationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,17 +14,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/list', [PaperRegistrationController::class, 'list'])
+    ->name('paper-registrations.list');
+
 
 Auth::routes();
 
 Route::middleware(['auth', 'approved'])->group(function () {
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 });
-
-use App\Http\Controllers\PaperRegistrationController;
 
 Route::get('/paper-registrations', [PaperRegistrationController::class, 'index'])
     ->name('paper-registrations.index')
