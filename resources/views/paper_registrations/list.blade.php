@@ -2,10 +2,21 @@
 
 @section('content')
 <div class="container">
-    <h2 class="my-5 text-center">Registration List</h2>
+    <h2 class="mt-5 text-center">Registration List</h2>
+<p class="text-center">(Please check below to confirm whether your registration has been received.)</p>
+<br><br>
+    <h1 class="text-center">24<sup>th</sup> International Mathematics Conference</h1>
+    <br>
+        <div class="d-flex justify-content-center align-items-center mb-4 gap-4">
+            <img src="{{ asset('/images/cu_logo.png') }}" alt="CU Logo" style="height: 70px;">
+            <img src="{{ asset('/images/bms_logo.png') }}" alt="BMS Logo" style="height: 95px;">
+        </div>
+    <h5 class="card-title mb-3 text-center">Organized by: Department of Mathematics, University of Chittagong</h5>
+      <h5 class="card-title mb-5 text-center">Supported by: Bangladesh Mathematical Society</h5>
+
 <h5 style="text-align: justify" class="container mb-5">
     <li>
-        Please verify that your registration appears in the list below. 
+        Please check that your registration appears in the list below. 
         If your name or paper ID is present, please wait for the approval process to be completed — you will also receive an email notification. 
     </li>
   <br>
