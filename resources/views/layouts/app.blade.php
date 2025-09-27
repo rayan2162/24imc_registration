@@ -23,6 +23,9 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
     />
 
+    {{-- for custom popup --}}
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <style>
         * {
             /* font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; */
@@ -139,7 +142,7 @@ font-weight: bold;
             <div class="container-fluid">
 
                 <!-- Logo and Title -->
-                <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
+                <a class="navbar-brand d-flex align-items-center" href="{{ url('https://24imc.cumathbms.org/') }}">
                     <div class="ms-2 d-flex flex-column">
                         <span class="fw-bold fs-5" style="color:#ED1B24">24<sup>th</sup> International</span>
                         <span class="fw-bold fs-5" style="color:#0072BB">Mathematics Conference</span>
@@ -160,13 +163,13 @@ font-weight: bold;
 <div class="mx-auto">
     <ul class="navbar-nav">
         <li class="nav-item">
-            <a class="nav-link fw-bold text-primary" href="{{ url('/') }}">Home</a>
+            <a class="nav-link fw-bold text-primary" href="{{ url('https://24imc.cumathbms.org/') }}">Home</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link fw-bold text-primary" href="{{ url('/about') }}">About</a>
+            <a class="nav-link fw-bold text-primary" href="{{ url('https://24imc.cumathbms.org/about') }}">About</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link fw-bold text-primary" href="{{ url('/speakers') }}">Speakers</a>
+            <a class="nav-link fw-bold text-primary" href="{{ url('https://24imc.cumathbms.org/speakers') }}">Speakers</a>
         </li>
 
         <!-- Committee Dropdown -->
@@ -175,10 +178,10 @@ font-weight: bold;
                 Committee
             </a>
             <ul class="dropdown-menu" aria-labelledby="committeeDropdown">
-                <li><a class="dropdown-item" style="color: #ED1B24" href="{{ url('/committee/scientific') }}">Scientific Committee</a></li>
-                <li><a class="dropdown-item" style="color: #ED1B24" href="{{ url('/committee/organizing') }}">Organizing Committee</a></li>
-                <li><a class="dropdown-item" style="color: #ED1B24" href="{{ url('/committee/national-advisory') }}">National Advisory Committee</a></li>
-                <li><a class="dropdown-item" style="color: #ED1B24" href="{{ url('/committee/advisory') }}">International Advisory Committee</a></li>
+                <li><a class="dropdown-item" style="color: #ED1B24" href="{{ url('https://24imc.cumathbms.org/committee/scientific') }}">Scientific Committee</a></li>
+                <li><a class="dropdown-item" style="color: #ED1B24" href="{{ url('https://24imc.cumathbms.org/committee/organizing') }}">Organizing Committee</a></li>
+                <li><a class="dropdown-item" style="color: #ED1B24" href="{{ url('https://24imc.cumathbms.org/committee/national-advisory') }}">National Advisory Committee</a></li>
+                <li><a class="dropdown-item" style="color: #ED1B24" href="{{ url('https://24imc.cumathbms.org/committee/advisory') }}">International Advisory Committee</a></li>
             </ul>
         </li>
 
@@ -217,13 +220,13 @@ font-weight: bold;
         </li>
 
         <li class="nav-item">
-            <a class="nav-link fw-bold text-primary" href="{{ url('/registration') }}">Registration</a>
+            <a class="nav-link fw-bold text-primary" href="{{ url('/paper-registrations/create') }}">Registration</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link fw-bold text-primary" href="{{ url('/paper-submission') }}">Paper Submission</a>
+            <a class="nav-link fw-bold text-primary" href="{{ url('https://24imc.cumathbms.org/paper-submission') }}">Paper Submission</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link fw-bold text-primary" href="{{ url('/contact') }}">Contact</a>
+            <a class="nav-link fw-bold text-primary" href="{{ url('https://24imc.cumathbms.org/contact') }}">Contact</a>
         </li>
     </ul>
 </div>
@@ -234,12 +237,12 @@ font-weight: bold;
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
-                                    <a class="nav-link" style="color: #ED1B24" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                    <a class="nav-link" style="color: #ED1B24" href="{{ route('login') }}">{{ __('Reg-Login') }}</a>
                                 </li>
                             @endif
                         @else
                             <li class="nav-item">
-                                <a class="nav-link fw-bold" style="color: #ED1B24" href="{{ url('/dashboard') }}">Dashboard</a>
+                                <a class="nav-link fw-bold" style="color: #ED1B24" href="{{ url('/paper-registrations') }}">Reg. Dashboard</a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle text-dark" href="#" role="button"
