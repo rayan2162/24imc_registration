@@ -17,7 +17,7 @@ class PaperRegistration extends Model
         'authors_photograph', 'student_id_card',
         'research_scope', 'paper_id_no', 'paper_title', 'authors_name',
         'manuscript', 'presentation_type', 'presenter_full_name',
-        'payment_method', 'tracking_number', 'proof_of_payment',
+        'payment_method','registration_type', 'tracking_number','ammount','payment_date',  'proof_of_payment',
         'is_approved',
     ];
 
