@@ -16,11 +16,14 @@
 
             <p><strong>Author Photo:</strong><br>
                 <img src="{{ asset('storage/' . $paper_registration->authors_photograph) }}" style="max-width:200px;" alt="photo">
+                <br>
+                <a href="{{ asset('storage/' . $paper_registration->authors_photograph) }}" download class="btn btn-primary mt-2">Download Photo</a>
             </p>
-
+            
             @if($paper_registration->student_id_card)
             <p><strong>Student ID:</strong><br>
                 <img src="{{ asset('storage/' . $paper_registration->student_id_card) }}" style="max-width:200px;" alt="student id">
+                <a href="{{ asset('storage/' . $paper_registration->student_id_card) }}" download class="btn btn-primary mt-2">Download Student ID Card</a>
             </p>
             @endif
 
