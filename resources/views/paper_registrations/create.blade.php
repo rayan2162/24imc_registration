@@ -3,24 +3,43 @@
 @section('content')
 
 {{-- Info Section --}}
+<div style="position: relative;">
+    <div style="
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: -1;
+        background: url('{{ asset('/images/reg_bg.jpg') }}') no-repeat center center fixed;
+        background-size: cover;
+        opacity: 0.4;
+    "></div>
 <div class="container my-5">
-    <div class="alert mt-3 py-3" style="background: #0072BB; color:white" role="alert">
-        <h1 class="text-center text-white pt-3">Registration</h1>
-        <h2 class="text-center text-white">24<sup>th</sup> International Mathematics Conference</h2>
-        <br>
-        <div class="d-flex justify-content-center align-items-center mb-4 gap-4">
-            <img src="{{ asset('/images/cu_logo_white.png') }}" alt="CU Logo" style="height: 80px;">
-            <img src="{{ asset('/images/bms_logo.png') }}" alt="BMS Logo" style="height: 80px;">
-        </div>
+<h2 class="mt-5 text-center fw-bold">Registration</h2>
+<p style="font-size: 0.9rem;" class="text-center">
+  Please review the entire page carefully. All registration information and the registration form are provided below.
+</p>
+
+<br><br>
+    <h1 class="text-center fw-bold">24<sup>th</sup> International Mathematics Conference</h1>
+    <br>
+    <div class="d-flex justify-content-center align-items-center mb-4 gap-4">
+        <img src="{{ asset('/images/cu_logo.png') }}" alt="CU Logo" style="height: 80px;">
+        <img src="{{ asset('/images/bms_logo.png') }}" alt="BMS Logo" style="height: 100px;">
+    </div>
     <h5 class="card-title mb-3 text-center">Organized by: Department of Mathematics, University of Chittagong</h5>
-      <h5 class="card-title mb-3 text-center">Supported by: Bangladesh Mathematical Society</h5>
-      <br>
-        <h2 class="alert-heading text-center">Please read this section carefully before filling up the registration form below</h2>
+    <h5 class="card-title mb-3 text-center">Supported by: Bangladesh Mathematical Society</h5>
+    <br>
+
+    <div class="alert mt-3 py-3" style="background: #0072BB; color:white" role="alert">
+    <h2 class="alert-heading text-center">Please read this section carefully before filling up the registration form below</h2>
         <br>
         <p class="mb-2" style="text-align: justify">
-            <strong>Important:</strong> Review all input fields and instructions before starting your registration. Ensure that you have all required documents and information ready. If you encounter any issues or have questions regarding the registration process, please contact us at:
+            <strong>Important:</strong> Review all input fields and instructions before starting your Registration. Ensure that you have all required documents and information ready. If you encounter any issues or have questions regarding the registration process, please contact us at:
             <br>
             <br>
+            <strong>Email:</strong> <a style="color: white" href="mailto:24imc2025@gmail.com">24imc2025@gmail.com</a><br>
             <strong>Email:</strong> <a style="color: white" href="mailto:mathchair@cu.ac.bd">mathchair@cu.ac.bd</a><br>
             <strong>Mobile:</strong> +880 1816 823 648
         </p>
@@ -110,11 +129,11 @@
 
 {{-- Form Section --}}
 <div class="container p-4 my-5" style="background: lightgray">
-    <h2 class="card-title mb-3 text-center">Registration Form</h2>
+    <h2 class="card-title mb-3 text-center fw-bold">Registration Form</h2>
       <h4 class="card-title mb-3 text-center">24<sup>th</sup> International Mathematics Conference </h4>
       <br>
 
-    @if(session('success'))
+    {{-- @if(session('success'))
         <div class="alert alert-success">{{ session('success') }}</div>
     @endif
 
@@ -126,64 +145,64 @@
                 @endforeach
             </ul>
         </div>
-    @endif
+    @endif --}}
 
     <form action="{{ route('paper-registrations.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
 
         <div class="row">
             <div class="col-md-6 mb-3">
-                <label class="form-label">Full Name (Required - In Capital Form)</label>
-                <input type="text" name="full_name" value="{{ old('full_name') }}" class="form-control" required>
+                <label class="form-label"><span class="fw-bold">Full Name</span>  (Required - In Capital Form)</label>
+                <input style="border: solid #0072BB 1px" type="text" name="full_name" value="{{ old('full_name') }}" class="form-control" required>
             </div>
 
             <div class="col-md-6 mb-3">
-                <label class="form-label">Affiliation / Designation (Optional)</label>
-                <input type="text" name="affiliation" value="{{ old('affiliation') }}" class="form-control">
+                <label class="form-label">Affiliation / Designation(Optional)</label>
+                <input style="border: solid #0072BB 1px" type="text" name="affiliation" value="{{ old('affiliation') }}" class="form-control">
             </div>
 
             <div class="col-md-6 mb-3">
                 <label class="form-label">Department (Optional)</label>
-                <input type="text" name="department" value="{{ old('department') }}" class="form-control">
+                <input style="border: solid #0072BB 1px" type="text" name="department" value="{{ old('department') }}" class="form-control">
             </div>
 
             <div class="col-md-6 mb-3">
                 <label class="form-label">Institution (Optional)</label>
-                <input type="text" name="institution" value="{{ old('institution') }}" class="form-control">
+                <input style="border: solid #0072BB 1px" type="text" name="institution" value="{{ old('institution') }}" class="form-control">
             </div>
 
             <div class="col-md-4 mb-3">
-                <label class="form-label">Country (Required)</label>
-                <input type="text" name="country" value="{{ old('country') }}" class="form-control" required>
+                <label class="form-label"><span class="fw-bold">Country</span> (Required)</label>
+                <input style="border: solid #0072BB 1px" type="text" name="country" value="{{ old('country') }}" class="form-control" required>
             </div>
 
             <div class="col-md-4 mb-3">
-                <label class="form-label">Phone (Required - Whatsapp Number)</label>
-                <input type="text" name="phone" value="{{ old('phone') }}" class="form-control" required>
+                <label class="form-label"><span class="fw-bold">Phone</span> (Required - Whatsapp Number)</label>
+                <input style="border: solid #0072BB 1px" type="text" name="phone" value="{{ old('phone') }}" class="form-control" required>
             </div>
 
             <div class="col-md-4 mb-3">
-                <label class="form-label">Email (Required)</label>
-                <input type="email" name="email" value="{{ old('email') }}" class="form-control" required>
+                <label class="form-label"><span class="fw-bold">Email</span> (Required)</label>
+                <input style="border: solid #0072BB 1px" type="email" name="email" value="{{ old('email') }}" class="form-control" required>
             </div>
 
             <div class="col-md-6 mb-3">
                 <label class="form-label">BMS ID No (Optional - If you are a BMS Member)</label>
-                <input type="text" name="bms_id_no" value="{{ old('bms_id_no') }}" class="form-control">
+                <input style="border: solid #0072BB 1px" type="text" name="bms_id_no" value="{{ old('bms_id_no') }}" class="form-control">
             </div>
 
             <div class="col-md-6 mb-3">
-                <label class="form-label">Author's Photograph (Required - JPG/JPEG/PNG, max 5MB)</label>
-                <input type="file" name="authors_photograph" class="form-control" accept=".jpg,.jpeg,.png" required>
+                <label class="form-label"><span class="fw-bold">Author's Photograph</span> (Required - JPG/JPEG/PNG, max 5MB)</label>
+                <input style="border: solid #0072BB 1px" type="file" name="authors_photograph" class="form-control" accept=".jpg,.jpeg,.png" required>
             </div>
 
             <div class="col-md-6 mb-3">
                 <label class="form-label">Student ID Card (Optional - JPG/JPEG/PNG, max 5MB)</label>
-                <input type="file" name="student_id_card" class="form-control" accept=".jpg,.jpeg,.png">
+                <input style="border: solid #0072BB 1px" type="file" name="student_id_card" class="form-control" accept=".jpg,.jpeg,.png">
             </div>
 
             <div class="col-12 mb-3">
-                <label class="form-label">Research Scope (Required)</label>
+                <label class="form-label"><span class="fw-bold">Research Scope </span>(Required)</label>
                 <select name="research_scope" class="form-select" required>
                     <option value="">Select Research Scope</option>
                     <option value="Analysis" {{ old('research_scope') === 'Analysis' ? 'selected' : '' }}>Analysis</option>
@@ -218,27 +237,27 @@
             </div>
 
             <div class="col-md-4 mb-3">
-                <label class="form-label">Paper ID No. (Required)</label>
-                <input type="text" name="paper_id_no" value="{{ old('paper_id_no') }}" class="form-control" required>
+                <label class="form-label"><span class="fw-bold">Paper ID No. </span>(Required)</label>
+                <input style="border: solid #0072BB 1px" type="text" name="paper_id_no" value="{{ old('paper_id_no') }}" class="form-control" required>
             </div>
 
             <div class="col-md-8 mb-3">
-                <label class="form-label">Paper Title (Required)</label>
-                <input type="text" name="paper_title" value="{{ old('paper_title') }}" class="form-control" required>
+                <label class="form-label"><span class="fw-bold">Paper Title </span> (Required)</label>
+                <input style="border: solid #0072BB 1px" type="text" name="paper_title" value="{{ old('paper_title') }}" class="form-control" required>
             </div>
 
             <div class="col-md-6 mb-3">
-                <label class="form-label">Authors Name (Required - Name of all Authors)</label>
-                <input type="text" name="authors_name" value="{{ old('authors_name') }}" class="form-control" required>
+                <label class="form-label"><span class="fw-bold">All Authors' Names </span> (Required - Full names of all authors, separated by commas.)</label>
+                <input style="border: solid #0072BB 1px" type="text" name="authors_name" value="{{ old('authors_name') }}" class="form-control" required>
             </div>
 
             <div class="col-md-6 mb-3">
-                <label class="form-label">Upload Manuscript (Required - DOC/DOCX/PDF, max 5MB) *</label>
-                <input type="file" name="manuscript" class="form-control" accept=".doc,.docx,.pdf" required>
+                <label class="form-label"><span class="fw-bold">Upload Manuscript </span> (Required - DOC/DOCX/PDF, max 5MB) </label>
+                <input style="border: solid #0072BB 1px" type="file" name="manuscript" class="form-control" accept=".doc,.docx,.pdf" required>
             </div>
 
             <div class="col-md-4 mb-3">
-                <label class="form-label">Presentation Type (Required)</label>
+                <label class="form-label"><span class="fw-bold">Presentation Type </span>(Required)</label>
                 <select name="presentation_type" class="form-select" required>
                     <option value="">Choose...</option>
                     <option value="Physical" {{ old('presentation_type') === 'Physical' ? 'selected' : '' }}>Physical</option>
@@ -247,13 +266,13 @@
             </div>
 
             <div class="col-md-8 mb-3">
-                <label class="form-label">Full name of Presenter (Required)</label>
-                <input type="text" name="presenter_full_name" value="{{ old('presenter_full_name') }}" class="form-control" required>
+                <label class="form-label"><span class="fw-bold">Full name of Presenter </span>(Required)</label>
+                <input style="border: solid #0072BB 1px" type="text" name="presenter_full_name" value="{{ old('presenter_full_name') }}" class="form-control" required>
             </div>
 
 
             <div class="col-md-4 mb-3">
-                <label class="form-label">Payment Method (Required)</label>
+                <label class="form-label"><span class="fw-bold">Payment Method </span>(Required)</label>
                 <select name="payment_method" class="form-select" required>
                     <option value="">Choose...</option>
                     <option value="bank" {{ old('payment_method') === 'bank' ? 'selected' : '' }}>Bank</option>
@@ -261,21 +280,114 @@
                 </select>
             </div>
 
+<div class="col-md-4 mb-3">
+    <label for="registration_type" class="form-label">
+        <span class="fw-bold">Registration Type</span> (Required)
+    </label>
+    <select name="registration_type" id="registration_type" class="form-select" required>
+        <option value="">Choose...</option>
+        <option value="early_bird" {{ old('registration_type') === 'early_bird' ? 'selected' : '' }}>Early Bird</option>
+        <option value="regular" {{ old('registration_type') === 'regular' ? 'selected' : '' }}>Regular</option>
+    </select>
+</div>
+
+
             <div class="col-md-4 mb-3">
-                <label class="form-label">Tracking number (Bank) / Transaction id (Bkash) - (Required)</label>
-                <input type="text" name="tracking_number" value="{{ old('tracking_number') }}" class="form-control">
+                <label class="form-label"><span class="fw-bold">Tracking number (Bank) / Transaction id (Bkash)</span> (Required)</label>
+                <input style="border: solid #0072BB 1px" type="text" name="tracking_number" value="{{ old('tracking_number') }}" class="form-control">
             </div>
 
             <div class="col-md-4 mb-3">
-                <label class="form-label">Proof of payment (Required - JPG/JPEG/PNG/PDF, max 5MB) *</label>
-                <input type="file" name="proof_of_payment" class="form-control" accept=".jpg,.jpeg,.png,.pdf" required>
+                <label class="form-label"><span class="fw-bold">Ammount</span> (Required)</label>
+                <input style="border: solid #0072BB 1px" type="text" name="ammount" value="{{ old('ammount') }}" class="form-control">
+            </div>
+            
+            
+            <div class="col-md-4 mb-3">
+                <label class="form-label"><span class="fw-bold">Payment Date</span> (Required)</label>
+                <input style="border: solid #0072BB 1px" type="date" name="payment_date" value="{{ old('payment_date') }}" class="form-control" required>
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <label class="form-label"><span class="fw-bold">Proof of payment </span> (Required - JPG/JPEG/PNG/PDF, max 5MB) *</label>
+                <input style="border: solid #0072BB 1px" type="file" name="proof_of_payment" class="form-control" accept=".jpg,.jpeg,.png,.pdf" required>
             </div>
 
         </div>
 
-        <div class="mt-4 text-center">
-            <button class="btn btn-primary text-center" type="submit">Submit Registration</button>
-            <button type="button" class="btn btn-secondary ms-2" onclick="printRegistrationPDF()">Print PDF</button>
+        <h5 style="text-align: justify" class="mb-4">
+  <strong>Important Instructions:</strong><br><br>
+  After successfully submitting the registration form, please use the <strong>"Print Registration Copy"</strong> button to print a copy of your registration. This printed form will serve as your proof of registration and must be presented at the event venue for entry.<br><br>
+  Once submitted, please verify that your registration has been added to our official list by visiting the following link: <a href="YOUR-LINK-HERE" target="_blank">[Check Registration Status]</a>. This list will also display the status of your registration and payment verification once reviewed by the 24IMC Committee.<br><br>
+ <input type="checkbox" required>
+  By submitting this form, you confirm that all information provided is accurate and complete to the best of your knowledge. The 24IMC Committee will not be held responsible for any issues arising from incorrect or incomplete information submitted by the participant.
+</h5>
+
+
+    {{-- @if(session('success'))
+        <script>
+            window.location.href = "{{ url('/list') }}";
+        </script>
+    @endif
+
+    @if($errors->any())
+        <script>
+            alert("{{ implode('\n', $errors->all()) }}");
+        </script>
+    @endif --}}
+
+@if(session('success'))
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            Swal.fire({
+                title: 'Registration Completed',
+                html: 'Your registration has been successfully completed. <br><br>' +
+                      'Please click the OK button to proceed to the official registration list. <br><br>' +
+                      'Wait for the approval process — you can check your status in the list, and you will also be notified via email.',
+                icon: 'success',
+                confirmButtonText: 'OK',
+                customClass: {
+                    popup: 'swal-wide'
+                }
+            }).then(function (result) {
+                if (result.isConfirmed) {
+                    window.location.href = "{{ url('/list') }}";
+                }
+            });
+        });
+    </script>
+@endif
+
+
+    @if($errors->any())
+            <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            Swal.fire({
+                title: 'Registration Failed',
+                html: `
+                    <p>Please check the following errors and try again:</p>
+                    <ul style="text-align: left;">
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                `,
+                icon: 'error',
+                confirmButtonText: 'OK',
+                customClass: {
+                    popup: 'swal-wide'
+                }
+            });
+        });
+    </script>
+    @endif
+
+
+        <div class="my-4 text-center">
+            <button class="btn btn-primary text-center" type="submit">Submit Registration Form</button>
+            <button type="button" class="btn btn-secondary ms-2" onclick="printRegistrationPDF()">Print Registration Copy</button>
         </div>
         <script>
             function printRegistrationPDF() {
