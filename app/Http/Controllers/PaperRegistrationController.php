@@ -39,20 +39,21 @@ class PaperRegistrationController extends Controller
     {
         // Validation rules
         $rules = [
-            'full_name' => 'required|string|max:255',
-            'affiliation' => 'nullable|string|max:255',
-            'department' => 'nullable|string|max:255',
-            'institution' => 'nullable|string|max:255',
+            'full_name' => 'required|string',
+            'affiliation' => 'nullable|string',
+            'department' => 'nullable|string',
+            'institution' => 'nullable|string',
             'country' => 'required|string|max:255',
             'phone' => 'required|string|max:255',
-            'email' => 'required|email|max:255',
+            'email' => 'required|email',
             'bms_id_no' => 'nullable|string|max:255',
 
             'authors_photograph' => 'required|file|mimes:jpg,jpeg,png|max:5120',
             'student_id_card' => 'nullable|file|mimes:jpg,jpeg,png|max:5120',
 
             'research_scope' => 'required|string',
-            'paper_id_no' => 'required|string|max:255',
+            // 'paper_id_no' => 'required|string|max:255',
+            'paper_id_no' => 'required|string|max:255|unique:paper_registrations,paper_id_no',
             'paper_title' => 'required|string',
             'authors_name' => 'required|string',
             'manuscript' => 'required|file|mimes:doc,docx,pdf|max:5120',
@@ -61,7 +62,12 @@ class PaperRegistrationController extends Controller
             'presenter_full_name' => 'required|string|max:255',
 
             'payment_method' => ['required', Rule::in(['bank','bkash'])],
+
+
+            'registration_type'=> ['required', Rule::in(['early_bird','regular'])],
+            'payment_date' => 'required|date',
             'tracking_number' => 'nullable|string|max:255',
+            'ammount' => 'nullable|string|max:255',
             'proof_of_payment' => 'required|file|mimes:jpg,jpeg,png,pdf,doc,docx|max:5120',
         ];
 
@@ -93,7 +99,7 @@ class PaperRegistrationController extends Controller
 
             // 2) create DB record
             $paper = PaperRegistration::create([
-                'full_name' => $validated['full_name'],
+                'full_name' => strtoupper($validated['full_name']),
                 'affiliation' => $validated['affiliation'] ?? null,
                 'department' => $validated['department'] ?? null,
                 'institution' => $validated['institution'] ?? null,
@@ -106,7 +112,7 @@ class PaperRegistrationController extends Controller
                 'student_id_card' => $stored['student_id_card'],
 
                 'research_scope' => $validated['research_scope'],
-                'paper_id_no' => $validated['paper_id_no'],
+                'paper_id_no' => strtoupper($validated['paper_id_no']),
                 'paper_title' => $validated['paper_title'],
                 'authors_name' => $validated['authors_name'],
                 'manuscript' => $stored['manuscript'],
@@ -115,7 +121,11 @@ class PaperRegistrationController extends Controller
                 'presenter_full_name' => $validated['presenter_full_name'],
 
                 'payment_method' => $validated['payment_method'],
+
+                'registration_type' => $validated['registration_type'],
+                'payment_date' => $validated['payment_date'],
                 'tracking_number' => $validated['tracking_number'],
+                'ammount' => $validated['ammount'],
                 'proof_of_payment' => $stored['proof_of_payment'],
 
                 // created with default is_approved = false
